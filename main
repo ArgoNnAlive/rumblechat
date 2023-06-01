@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <link rel="preconnect" href="https://fonts.gstatic.com"/>
+      <link rel="dns-prefetch" href="https://fonts.gstatic.com"/>
+      <link rel="preconnect" href="https://res.cloudinary.com"/>
+      <link rel="dns-prefetch" href="https://res.cloudinary.com"/>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>RumbleChat2 - We're Back</title>
+      <style>
+         @font-face {
+            font-family: "Fredericka the Great";
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/frederickathegreat/v16/9Bt33CxNwt7aOctW2xjbCstzwVKsIBVV--SjxbcHcQ2K.woff2) format("woff2");
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+         }
+         @font-face {
+            font-family: "Rock Salt";
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/rocksalt/v18/MwQ0bhv11fWD6QsAVOZrt0M6p7NGrQ.woff2) format("woff2");
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+         }
+         html {
+            height: 100%;
+            cursor: url("https://res.cloudinary.com/dgqhucnpf/image/upload/c_scale,e_colorize,co_white,w_26/v1684874471/external-link_kqz7by.png"), auto;
+         }
+         body {
+            background-color: #806288;
+            background-image: url("https://res.cloudinary.com/dgqhucnpf/image/upload/e_sharpen:100,q_100/v1684017727/84248_bo4kwr.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center top;
+            overflow: hidden;
+         }
+         .images {
+            cursor: pointer !important;
+         }
+         .images:hover .image:nth-child(4) {
+            -moz-transform: rotate(10deg) translateX(50px);
+            -ms-transform: rotate(10deg) translateX(50px);
+            -webkit-transform: rotate(10deg) translateX(50px);
+            transform: rotate(10deg) translateX(50px);
+         }
+         .images:hover .image:nth-child(3) {
+            -moz-transform: rotate(3deg) translateX(75px);
+            -ms-transform: rotate(3deg) translateX(75px);
+            -webkit-transform: rotate(3deg) translateX(75px);
+            transform: rotate(3deg) translateX(75px);
+         }
+         .images:hover .image:nth-child(2) {
+            -moz-transform: rotate(-2deg) translateX(-50px);
+            -ms-transform: rotate(-2deg) translateX(-50px);
+            -webkit-transform: rotate(-2deg) translateX(-50px);
+            transform: rotate(-2deg) translateX(-50px);
+         }
+         .images:hover .image:first-child {
+            -moz-transform: rotate(-8deg) translateX(-75px) translateY(-10px);
+            -ms-transform: rotate(-8deg) translateX(-75px) translateY(-10px);
+            -webkit-transform: rotate(-8deg) translateX(-75px) translateY(-10px);
+            transform: rotate(-8deg) translateX(-75px) translateY(-10px);
+         }
+         .image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 350px;
+            width: 350px;
+            margin-top: -23vh;
+            margin-left: -170px;
+            border: 2px solid #fff;
+            -moz-box-shadow: 0 2px 5px rgba(30, 30, 30, 0.25);
+            -webkit-box-shadow: 0 2px 5px rgba(30, 30, 30, 0.25);
+            box-shadow: 0 2px 5px rgba(30, 30, 30, 0.25);
+            z-index: 2;
+            -moz-transition: -moz-transform 0.3s ease-in-out;
+            -o-transition: -o-transform 0.3s ease-in-out;
+            -webkit-transition: -webkit-transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out;
+            border-radius: 5px;
+            cursor: pointer !important;
+         }
+         .image:first-child {
+            -moz-transform: rotate(8deg);
+            -ms-transform: rotate(8deg);
+            -webkit-transform: rotate(8deg);
+            transform: rotate(8deg);
+         }
+         .image:nth-child(2) {
+            -moz-transform: rotate(2deg);
+            -ms-transform: rotate(2deg);
+            -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+         }
+         .image:nth-child(3) {
+            -moz-transform: rotate(-3deg);
+            -ms-transform: rotate(-3deg);
+            -webkit-transform: rotate(-3deg);
+            transform: rotate(-3deg);
+         }
+         .image:nth-child(4) {
+            -moz-transform: rotate(-10deg);
+            -ms-transform: rotate(-10deg);
+            -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+         }
+         .image:last-child {
+            -moz-transform: rotate(-5deg);
+            -ms-transform: rotate(-5deg);
+            -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+         }
+         .image.slide-right {
+            -moz-transform: rotate(290deg) translateX(250px);
+            -ms-transform: rotate(290deg) translateX(250px);
+            -webkit-transform: rotate(290deg) translateX(250px);
+            transform: rotate(290deg) translateX(250px);
+         }
+         .image.slide-left {
+            -moz-transform: rotate(-290deg) translateX(-250px);
+            -ms-transform: rotate(-290deg) translateX(-250px);
+            -webkit-transform: rotate(-290deg) translateX(-250px);
+            transform: rotate(-290deg) translateX(-250px);
+         }
+         .image.back {
+            z-index: 1;
+         }
+         h1 {
+            font-size: 50px;
+            color: #fff;
+            text-align: center;
+            font-family: "Rock Salt", fantasy;
+            cursor: text !important;
+         }
+         h1 div span {
+            animation: bounce 2.5s ease infinite alternate;
+            animation-delay: 1s;
+         }
+         @keyframes bounce {
+            100% {
+               top: -20px;
+               text-shadow: 0 1px #ccc, 0 2px #ccc, 0 3px #ccc, 0 4px #ccc, 0 5px #ccc, 0 6px #ccc, 0 7px #ccc, 0 8px #ccc, 0 9px #ccc, 0 50px 25px rgba(0, 0, 0, 0.2);
+            }
+         }
+         h1 div span:nth-child(2) {
+            animation-delay: 1.1s;
+         }
+         h1 div span:nth-child(3) {
+            animation-delay: 1.2s;
+         }
+         h1 div span:nth-child(4) {
+            animation-delay: 1.3s;
+         }
+         h1 div span:nth-child(5) {
+            animation-delay: 1.4s;
+         }
+         h1 div span:nth-child(6) {
+            animation-delay: 1.5s;
+         }
+         h1 div span:nth-child(7) {
+            animation-delay: 1.6s;
+         }
+         h1 div span:nth-child(8) {
+            animation-delay: 1.7s;
+         }
+         h1 div span:nth-child(9) {
+            animation-delay: 1.8s;
+         }
+         h1 div span:nth-child(10) {
+            animation-delay: 1.9s;
+         }
+         h1 div span:nth-child(12) {
+            animation-delay: 2s;
+         }
+         h2 {
+            color: #fff;
+            text-align: center;
+            font-family: "Fredericka the Great", sans;
+            margin-top: 0px;
+            cursor: text !important;
+            text-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+         }
+         main {
+            margin-top: -2.5vh;
+         }
+         @media (max-height: 684px) {
+            .image {
+               margin-top: -20vh;
+            }
+         }
+         @media (max-height: 634px) {
+            .image {
+               margin-top: -18vh;
+            }
+         }
+         @media (max-height: 574px) {
+            .image {
+               margin-top: -20vh;
+            }
+            main {
+               margin-top: -7.5vh;
+            }
+         }
+         @media (max-width: 660px) {
+            .short {
+               display: block !important;
+            }
+            .large {
+               display: none;
+            }
+         }
+         .signature {
+            position: absolute;
+            right: -15px;
+            bottom: -10px;
+            width: 300px;
+            filter: invert(100%) drop-shadow(5px 5px 5px #222);
+         }
+      </style>
+   </head>
+   <body>
+      <main>
+         <img src="https://res.cloudinary.com/dgqhucnpf/image/upload/v1685472744/signature_zvgjou.png" class="signature"/>
+         <audio id="audio" autoplay loop>
+            <source src="https://res.cloudinary.com/dgqhucnpf/video/upload/q_100/v1684876149/07bc9c16-c70c-4758-9b21-ffff63f93d64_rji9n6.mp3" type="audio/mpeg" />
+         </audio>
+         <h1 id="rounded-h1">
+            <div aria-label="RumbleChat 2" style="position: relative; height: 1.24256em;">
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.439688em) rotate(-5.747569deg); transform-origin: center 40em;">R</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.330313em) rotate(-4.616345deg); transform-origin: center 40em;">u</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.49584em) rotate(-3.402626deg); transform-origin: center 40em;">m</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.382559em) rotate(-2.112151deg); transform-origin: center 40em;">b</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.272695em) rotate(-1.149502deg); transform-origin: center 40em;">l</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.295645em) rotate(-0.314541deg); transform-origin: center 40em;">e</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.455313em) rotate(0.788706deg); transform-origin: center 40em;">C</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.345938em) rotate(1.965841deg); transform-origin: center 40em;">h</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.369375em) rotate(3.016723deg); transform-origin: center 40em;">a</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.362051em) rotate(4.091277deg); transform-origin: center 40em;">t</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.215078em) rotate(4.93915deg); transform-origin: center 40em;">&nbsp;</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.387441em) rotate(5.824325deg); transform-origin: center 40em;">2</span>
+            </div>
+         </h1>
+         <h2 id="rounded-h2">
+            <div class="large" aria-label="Chat your way, it's your new corner of the internet..." style="position: relative; height: 3.053335em;">
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.360677em) rotate(-17.776744deg); transform-origin: center 41.666667em;">C</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.309896em) rotate(-16.831965deg); transform-origin: center 41.666667em;">h</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.301107em) rotate(-15.971116deg); transform-origin: center 41.666667em;">a</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.207357em) rotate(-15.254735deg); transform-origin: center 41.666667em;">t</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.202474em) rotate(-14.67732deg); transform-origin: center 41.666667em;">&nbsp;</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.225911em) rotate(-14.073762deg); transform-origin: center 41.666667em;">y</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.293783em) rotate(-13.341559deg); transform-origin: center 41.666667em;">o</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.295736em) rotate(-12.510979deg); transform-origin: center 41.666667em;">u</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.234212em) rotate(-11.764329deg); transform-origin: center 41.666667em;">r</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.202474em) rotate(-11.149076deg); transform-origin: center 41.666667em;">&nbsp;</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.355306em) rotate(-10.363213deg); transform-origin: center 41.666667em;">w</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.301107em) rotate(-9.438384deg); transform-origin: center 41.666667em;">a</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.225911em) rotate(-8.695862deg); transform-origin: center 41.666667em;">y</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.117513em) rotate(-8.212007deg); transform-origin: center 41.666667em;">,</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.202474em) rotate(-7.761173deg); transform-origin: center 41.666667em;">&nbsp;</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.185872em) rotate(-7.214027deg); transform-origin: center 41.666667em;">i</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.207357em) rotate(-6.660001deg); transform-origin: center 41.666667em;">t</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.063314em) rotate(-6.27865deg); transform-origin: center 41.666667em;">'</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.235189em) rotate(-5.858086deg); transform-origin: center 41.666667em;">s</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.202474em) rotate(-5.241458deg); transform-origin: center 41.666667em;">&nbsp;</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.225911em) rotate(-4.6379deg); transform-origin: center 41.666667em;">y</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.293783em) rotate(-3.905697deg); transform-origin: center 41.666667em;">o</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.295736em) rotate(-3.075117deg); transform-origin: center 41.666667em;">u</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.234212em) rotate(-2.328467deg); transform-origin: center 41.666667em;">r</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.202474em) rotate(-1.713214deg); transform-origin: center 41.666667em;">&nbsp;</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.31429em) rotate(-0.985138deg); transform-origin: center 41.666667em;">n</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.271322em) rotate(-0.160062deg); transform-origin: center 41.666667em;">e</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.355306em) rotate(0.722802deg); transform-origin: center 41.666667em;">w</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.202474em) rotate(1.508665deg); transform-origin: center 41.666667em;">&nbsp;</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.267904em) rotate(2.171386deg); transform-origin: center 41.666667em;">c</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.293783em) rotate(2.962752deg); transform-origin: center 41.666667em;">o</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.234212em) rotate(3.706651deg); transform-origin: center 41.666667em;">r</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.31429em) rotate(4.479443deg); transform-origin: center 41.666667em;">n</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.271322em) rotate(5.304519deg); transform-origin: center 41.666667em;">e</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.234212em) rotate(6.016772deg); transform-origin: center 41.666667em;">r</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.202474em) rotate(6.632025deg); transform-origin: center 41.666667em;">&nbsp;</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.293783em) rotate(7.331207deg); transform-origin: center 41.666667em;">o</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.195638em) rotate(8.020758deg); transform-origin: center 41.666667em;">f</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.202474em) rotate(8.581663deg); transform-origin: center 41.666667em;">&nbsp;</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.207357em) rotate(9.159079deg); transform-origin: center 41.666667em;">t</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.309896em) rotate(9.887842deg); transform-origin: center 41.666667em;">h</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.271322em) rotate(10.706727deg); transform-origin: center 41.666667em;">e</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.202474em) rotate(11.374263deg); transform-origin: center 41.666667em;">&nbsp;</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.185872em) rotate(11.921409deg); transform-origin: center 41.666667em;">i</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.31429em) rotate(12.626095deg); transform-origin: center 41.666667em;">n</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.207357em) rotate(13.36105deg); transform-origin: center 41.666667em;">t</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.271322em) rotate(14.035466deg); transform-origin: center 41.666667em;">e</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.234212em) rotate(14.747719deg); transform-origin: center 41.666667em;">r</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.31429em) rotate(15.520512deg); transform-origin: center 41.666667em;">n</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.271322em) rotate(16.345588deg); transform-origin: center 41.666667em;">e</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.207357em) rotate(17.020004deg); transform-origin: center 41.666667em;">t</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.115072em) rotate(17.474277deg); transform-origin: center 41.666667em;">.</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.115072em) rotate(17.798529deg); transform-origin: center 41.666667em;">.</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.115072em) rotate(18.122781deg); transform-origin: center 41.666667em;">.</span>
+            </div>
+            <div class="short" aria-label="Chat your way..." style="position: relative; height: 1.183165em; display: none;">
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.360677em) rotate(-4.931882deg); transform-origin: center 41.666667em;">C</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.309896em) rotate(-3.987103deg); transform-origin: center 41.666667em;">h</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.301107em) rotate(-3.126254deg); transform-origin: center 41.666667em;">a</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.207357em) rotate(-2.409873deg); transform-origin: center 41.666667em;">t</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.202474em) rotate(-1.832458deg); transform-origin: center 41.666667em;">&nbsp;</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.225911em) rotate(-1.2289deg); transform-origin: center 41.666667em;">y</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.293783em) rotate(-0.496697deg); transform-origin: center 41.666667em;">o</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.295736em) rotate(0.333883deg); transform-origin: center 41.666667em;">u</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.234212em) rotate(1.080533deg); transform-origin: center 41.666667em;">r</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.202474em) rotate(1.695786deg); transform-origin: center 41.666667em;">&nbsp;</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.355306em) rotate(2.481649deg); transform-origin: center 41.666667em;">w</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.301107em) rotate(3.406477deg); transform-origin: center 41.666667em;">a</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.225911em) rotate(4.149deg); transform-origin: center 41.666667em;">y</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.115072em) rotate(4.629415deg); transform-origin: center 41.666667em;">.</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.115072em) rotate(4.953667deg); transform-origin: center 41.666667em;">.</span>
+               <span style="position: absolute; bottom: auto; left: 50%; transform: translateX(-0.115072em) rotate(5.277919deg); transform-origin: center 41.666667em;">.</span>
+            </div>
+         </h2>
+         <div class="images">
+            <img class="image" src="https://res.cloudinary.com/dgqhucnpf/image/upload/v1684106036/blue_nnwj66.png" />
+            <img class="image" src="https://res.cloudinary.com/dgqhucnpf/image/upload/v1684106356/Screenshot_2023-05-14_at_7.19.10_PM_qdwiyv.png" />
+            <img class="image" src="https://res.cloudinary.com/dgqhucnpf/image/upload/v1684106437/Screenshot_2023-05-14_at_7.20.29_PM_hksrzp.png" />
+            <img class="image" src="https://res.cloudinary.com/dgqhucnpf/image/upload/v1684106507/Screenshot_2023-05-14_at_7.21.41_PM_kzrodq.png" />
+            <img class="image" src="https://res.cloudinary.com/dgqhucnpf/image/upload/v1684106668/Screenshot_2023-05-14_at_7.24.23_PM_rbflxu.png" />
+         </div>
+      </main>
+      <script>
+         (function () {
+            var audio = document.getElementById("audio");
+            window.addEventListener("DOMContentLoaded", (event) => {
+               audio.play();
+            });
+            document.addEventListener("click", function (event) {
+               audio.play();
+               var clickedElement = event.target;
+               if (!clickedElement.matches(".images") && !clickedElement.matches(".image") && !clickedElement.matches("span")) {
+                  window.open("https://socialrumbles.com/dm/");
+               }
+            });
+            var cssTransition, imageOffset, imageWidth, images, queue, timeout, touch;
+            cssTransition = function () {
+               var body, i, len, style, vendor, vendors;
+               body = document.body || document.documentElement;
+               style = body.style;
+               vendors = ["Moz", "Webkit", "O"];
+               if (typeof style["transition"] === "string") {
+                  return true;
+               }
+               for (i = 0, len = vendors.length; i < len; i++) {
+                  if (window.CP.shouldStopExecution(1)) {
+                     break;
+                  }
+                  vendor = vendors[i];
+                  if (typeof style[vendor + "Transition"] === "string") {
+                     return true;
+                  }
+               }
+               window.CP.exitedLoop(1);
+               return false;
+            };
+            queue = false;
+            touch = document.documentElement["ontouchstart"] !== void 0;
+            images = document.querySelector(".images");
+            imageWidth = images.firstElementChild.offsetWidth;
+            imageOffset = images.firstElementChild.offsetLeft;
+            timeout = cssTransition() ? [300, 400] : [0, 0];
+            images.addEventListener(
+               touch ? "touchend" : "click",
+               function (event) {
+                  var direction, lastClassList;
+                  if (queue) {
+                     return;
+                  }
+                  queue = true;
+                  if ((touch ? event.changedTouches[0].pageX : event.pageX) - imageOffset > imageWidth / 2) {
+                     direction = "slide-right";
+                  } else {
+                     direction = "slide-left";
+                  }
+                  lastClassList = images.lastElementChild.classList;
+                  lastClassList.add(direction);
+                  return setTimeout(function () {
+                     lastClassList.remove(direction);
+                     lastClassList.add("back");
+                     return setTimeout(function () {
+                        images.insertBefore(images.lastElementChild, images.firstElementChild);
+                        lastClassList.remove("back");
+                        return (queue = false);
+                     }, timeout[0]);
+                  }, timeout[1]);
+               },
+               false
+            );
+         }.call(this));
+      </script>
+   </body>
+</html>
